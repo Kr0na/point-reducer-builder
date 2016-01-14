@@ -1,0 +1,33 @@
+{
+  "name": "point-reducer-builder",
+  "version": "0.0.1",
+  "description": "Build Reducer by composing actions",
+  "main": "lib/index.js",
+  "scripts": {
+    "dist": "babel -d lib/ src/",
+    "prepublish": "npm run dist",
+    "test": "babel-node ./node_modules/.bin/isparta cover ./node_modules/.bin/_mocha --report lcovonly -- -R spec"
+  },
+  "keywords": [
+    "Point",
+    "One",
+    "Krona",
+    "Reducer",
+    "redux"
+  ],
+  "author": "Alex Grand <alex@granted.name>",
+  "license": "MIT",
+  "dependencies": {
+    "point-one": "^0.2.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.4.0",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+    "babel-register": "^6.4.3",
+    "chai": "^3.4.1",
+    "isparta": "^4.0.0",
+    "mocha": "^2.3.4"
+  }
+}
