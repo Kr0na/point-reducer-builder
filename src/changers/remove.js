@@ -13,9 +13,9 @@ function removeArray(idProperty:string, state:Array<any>, event:Object):Array<an
 }
 
 function removeObject(idProperty:string, state:Object, event:Object):Object {
-  if (state[idProperty]) {
+  if (state.hasOwnProperty(event[idProperty])) {
     return Object.keys(state).reduce((newState, key) => {
-      if (key != idProperty) {
+      if (state[key][idProperty] != event[idProperty]) {
         newState[key] = state[key]
       }
       return newState
@@ -25,11 +25,8 @@ function removeObject(idProperty:string, state:Object, event:Object):Object {
   }
 }
 
-export function remove(idProperty:string|() => string):Function {
+export function remove(idProperty:string):Function {
   return (state, event) => {
-    if (typeof idProperty == 'function') {
-      idProperty = idProperty(state, event)
-    }
     if (Array.isArray(state)) {
       return removeArray(idProperty, state, event)
     } else {

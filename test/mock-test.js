@@ -42,7 +42,7 @@ describe('Mock Test', () => {
             //Append user to array
             event(
               'USER_ADD',
-              project(e => e.data, append)
+              project(e => e.data, append())
             ),
             //Update User in array
             event(

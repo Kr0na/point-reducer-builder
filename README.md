@@ -7,6 +7,7 @@ functionality. But you put it each time and sometimes you copy it to new places
 and forget to change something.
 
 Just look at your code and count places where you:
+
 1. Find Index of element in array
 2. Replace/Update/Remove elements from array
 
@@ -19,7 +20,10 @@ let todoReducer = event(
     'users',
     event(
       'TODO_ADD',
-      append
+      project(
+        e => e.data,
+        select('id', append())
+      )
     ),
     event(
       'TODO_UPDATE',
