@@ -1,4 +1,7 @@
 # Reducer Builder for Point One or Redux
+[![Build Status](https://travis-ci.org/Kr0na/point-reducer-builder.svg?branch=master)](https://travis-ci.org/Kr0na/point-reducer-builder)
+[![codecov.io](https://codecov.io/github/Kr0na/point-reducer-builder/coverage.svg?branch=master)](https://codecov.io/github/Kr0na/point-reducer-builder?branch=master)
+
 When you use Point One or Redux many of your reducers have many code with closer
 functionality. But you put it each time and sometimes you copy it to new places
 and forget to change something.
