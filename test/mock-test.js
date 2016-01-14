@@ -1,6 +1,6 @@
 /**@flow*/
 import {assert} from 'chai'
-import {event, concat, project, select, append, remove, update, value} from '../src/index'
+import {concat, event, events, init, project, select, append, remove, update, value} from '../src/index'
 
 describe('Mock Test', () => {
   it('quick test', () => {
@@ -9,7 +9,10 @@ describe('Mock Test', () => {
         //Select with updating on event
         select(
           'firstName',
-          event('RENAME', value('firstName'))
+          events(
+            event('RENAME', value('firstName')),
+            init('Alex')
+          )
         ),
         //Update Object value on event
         event('RENAME', update('lastName')),
@@ -55,7 +58,6 @@ describe('Mock Test', () => {
         )
       ),
       state = {
-        firstName: 'Alex',
         lastName: 'Grand',
         name: 'Alex Grand'
       },
@@ -65,6 +67,7 @@ describe('Mock Test', () => {
       userRemoveState = someReducer(userUpdateState, {type: 'USER_REMOVE', data: {id:0}})
     assert.propertyVal(renameState, 'name', 'Foo Bar')
     assert.propertyVal(renameState, 'name2', 'Foo Bar')
+    assert.propertyVal(userAddState, 'firstName', 'Alex')
     assert.deepPropertyVal(userAddState, 'users[0].id', 0)
     assert.deepPropertyVal(userAddState, 'users[0].name', 'Test')
     assert.deepPropertyVal(userUpdateState, 'users[0].name', 'Arilas')
