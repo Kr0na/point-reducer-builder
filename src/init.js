@@ -1,4 +1,5 @@
 /**@flow*/
+import type {PointReducer} from '../flow/types'
 
 /**
  * Example:
@@ -11,7 +12,7 @@
  *  )
  * )
  */
-export function init(value:any):(state:any)=>any {
+export function init(value: any): PointReducer {
   let inited = false
   return state => {
     if (inited) {

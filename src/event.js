@@ -1,6 +1,7 @@
 /**@flow*/
+import type {PointReducer} from '../flow/types'
 
-export function event(type:RegExp|(()=>string)|string, ...handlers:Array<(state:any, event:{type:string})=>any>):(state:any, event:{type:string})=>any {
+export function event(type: RegExp|(()=>string)|string, ...handlers: Array<PointReducer>): PointReducer {
   return (state, event, found) => {
     if (type instanceof RegExp) {
       if (type.test(event.type)) {

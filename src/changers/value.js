@@ -1,10 +1,11 @@
 /**@flow*/
+import type {PointReducer} from '../../flow/types'
 
-export function value(field:?string|?(state:any, event:any)=>any):(state:any, event:any)=>any {
+export function value(field: ?string|(state: any, event: any) => any): PointReducer {
   if (field) {
     return (state, event) => typeof field == 'function'
       ? field(state, event)
-      : event[field]
+      : field && event[field] || null
   } else {
     return (state, event) => event
   }

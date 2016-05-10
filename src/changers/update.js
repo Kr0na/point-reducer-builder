@@ -1,6 +1,7 @@
 /**@flow*/
+import type {PointReducer} from '../../flow/types'
 
-export function update(...fields:Array<string>):Function {
+export function update(...fields: Array<string>): PointReducer {
   if (fields.length) {
     return (state, event) => (
       fields.reduce((newState, field) => {

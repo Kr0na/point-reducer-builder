@@ -1,7 +1,8 @@
 /**@flow*/
+import type {PointReducer} from '../../flow/types'
 import {arrayRemove} from 'point-one'
 
-function removeArray(idProperty:string, state:Array<any>, event:Object):Array<any> {
+function removeArray(idProperty: string, state: Array<any>, event: Object): Array<any> {
   if (event.hasOwnProperty(idProperty)) {
     const index = state.findIndex(item => item[idProperty] == event[idProperty])
     if (index != -1) {
@@ -12,7 +13,7 @@ function removeArray(idProperty:string, state:Array<any>, event:Object):Array<an
   return state
 }
 
-function removeObject(idProperty:string, state:Object, event:Object):Object {
+function removeObject(idProperty: string, state: Object, event: Object): Object {
   if (state.hasOwnProperty(event[idProperty])) {
     return Object.keys(state).reduce((newState, key) => {
       if (state[key][idProperty] != event[idProperty]) {
@@ -25,7 +26,7 @@ function removeObject(idProperty:string, state:Object, event:Object):Object {
   }
 }
 
-export function remove(idProperty:string):Function {
+export function remove(idProperty: string): PointReducer {
   return (state, event) => {
     if (Array.isArray(state)) {
       return removeArray(idProperty, state, event)

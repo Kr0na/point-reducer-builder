@@ -1,7 +1,8 @@
 /**@flow*/
+import type {PointReducer} from '../../flow/types'
 import {arrayAppend} from 'point-one'
 
-export function append(idProperty:?string):(state:?Array<Object>|Object, event:any)=>any {
+export function append(idProperty: ?string): PointReducer {
   return (state, event) => {
     if (idProperty && idProperty != "" && !Array.isArray(state)) {
       if (state == null) {

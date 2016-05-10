@@ -9,7 +9,7 @@ describe('changers', () => {
         state = {
           foo: 'bar'
         },
-        newState = set('foo', 'test')(state)
+        newState = set('foo', 'test')(state, {})
       assert.propertyVal(state, 'foo', 'bar')
       assert.propertyVal(newState, 'foo', 'test')
     })

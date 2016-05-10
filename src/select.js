@@ -1,7 +1,8 @@
 /**@flow*/
+import type {PointReducer} from '../flow/types'
 import {arrayReplace} from 'point-one'
 
-function selectArray(idProperty:string, handlers:Array<Function>, state:Array<Object>, event:Object):Array<Object> {
+function selectArray(idProperty: string, handlers: Array<PointReducer>, state: Array<Object>, event: Object): Array<Object> {
   if (event[idProperty] != null) {
     const
       index = state.findIndex(item => item[idProperty] == event[idProperty])
@@ -15,15 +16,15 @@ function selectArray(idProperty:string, handlers:Array<Function>, state:Array<Ob
   return state
 }
 
-function selectObject(name:string, handlers:Array<Function>, state:Object, event:Object):Object {
+function selectObject(name: string, handlers: Array<PointReducer>, state: Object, event: Object): Object {
   const
     element = state[name],
     newElement = handlers.reduce((el, handler) => handler(el, event), element)
   return Object.is(element, newElement) ? state : {...state, [name]: newElement}
 }
 
-export function select(idProperty: string|(() => string), ...handlers:Array<Function>):(state:any, event:{type:string})=>any {
-  return (state, event:Object) => {
+export function select(idProperty: string|(() => string), ...handlers: Array<PointReducer>): PointReducer {
+  return (state, event) => {
     if (typeof idProperty == 'function') {
       idProperty = idProperty(state, event)
     }
