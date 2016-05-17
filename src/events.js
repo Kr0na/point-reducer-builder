@@ -1,5 +1,5 @@
 /**@flow*/
-import type {PointReducer} from '../flow/types'
+import type {PointReducer} from './types'
 
 /**
  * For example if you need some default behavior for some element for example

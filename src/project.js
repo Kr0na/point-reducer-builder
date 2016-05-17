@@ -1,5 +1,5 @@
 /**@flow*/
-import type {PointReducer} from '../flow/types'
+import type {PointReducer} from './types'
 
 /**
  * Modify event object to your needs. It can be helpful to modify response from

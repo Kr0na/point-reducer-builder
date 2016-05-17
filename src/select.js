@@ -1,5 +1,5 @@
 /**@flow*/
-import type {PointReducer} from '../flow/types'
+import type {PointReducer} from './types'
 import {arrayReplace} from 'point-one'
 
 function selectArray(idProperty: string, handlers: Array<PointReducer>, state: Array<Object>, event: Object): Array<Object> {

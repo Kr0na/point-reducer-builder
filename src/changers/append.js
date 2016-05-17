@@ -1,5 +1,5 @@
 /**@flow*/
-import type {PointReducer} from '../../flow/types'
+import type {PointReducer} from '../types'
 import {arrayAppend} from 'point-one'
 
 export function append(idProperty: ?string): PointReducer {

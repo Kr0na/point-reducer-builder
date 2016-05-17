@@ -1,5 +1,5 @@
 /**@flow*/
-import type {PointReducer} from '../../flow/types'
+import type {PointReducer} from '../types'
 
 export function update(...fields: Array<string>): PointReducer {
   if (fields.length) {

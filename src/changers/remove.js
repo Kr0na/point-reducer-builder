@@ -1,5 +1,5 @@
 /**@flow*/
-import type {PointReducer} from '../../flow/types'
+import type {PointReducer} from '../types'
 import {arrayRemove} from 'point-one'
 
 function removeArray(idProperty: string, state: Array<any>, event: Object): Array<any> {

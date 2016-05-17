@@ -1,5 +1,5 @@
 /**@flow*/
-import type {PointReducer} from '../flow/types'
+import type {PointReducer} from './types'
 
 export function concat(...handlers: Array<PointReducer>): PointReducer {
   return (state, event) => (

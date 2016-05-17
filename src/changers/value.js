@@ -1,5 +1,5 @@
 /**@flow*/
-import type {PointReducer} from '../../flow/types'
+import type {PointReducer} from '../types'
 
 export function value(field: ?string|(state: any, event: any) => any): PointReducer {
   if (field) {
