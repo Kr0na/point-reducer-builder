@@ -1,6 +1,7 @@
 /**@flow*/
 import type {PointReducer} from './types'
 
+const initEvent = /@@[a-z]+\/INIT/
 /**
  * Example:
  * select(
@@ -14,8 +15,8 @@ import type {PointReducer} from './types'
  */
 export function init(value: any): PointReducer {
   let inited = false
-  return state => {
-    if (inited) {
+  return (state, event) => {
+    if (inited && !initEvent.test(event.type)) {
       return state
     }
     inited = true
