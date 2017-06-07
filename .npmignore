@@ -5,3 +5,6 @@ node_modules
 coverage
 test
 src
+.babelrc
+.flowconfig
+.travis.yml
